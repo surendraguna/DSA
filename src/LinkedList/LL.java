@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class LL
 {
-    // Create Node
+    // Create Node Class
     public static class Node
     {
         // Declaration of variable
