@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class DL
 {
+    //Creating Node class for Double Linked list;
     class Node
     {
         // Declaration of Node variables
@@ -32,31 +33,32 @@ public class DL
     void addLast(int x)
     {
         Node n = new Node(x);
-        if(head == null)
+        if(head == null) // Here No head then assign to head
         {
             head = n;
             return;
         }
         Node temp = head;
-        while(temp.next != null)
+        while(temp.next != null) // Move pointer ti last
             temp = temp.next;
         temp.next = n;
         n.prev = temp;
     }
     void addRandom(int data, int l)
     {
-        Node n = new Node(data);
-        if(head == null && l == 0)
-        {
-            head = n;
-            return;
-        }
-        if(l > 0 && head == null)
+
+        if(l > 0 && head == null) // here head is null and Location more than 0
         {
             System.out.println("NOT possible");
             return;
         }
-        if(l == 0)
+        Node n = new Node(data);
+        if(head == null && l == 0) // head is null but l is o
+        {
+            head = n;
+            return;
+        }
+        if(l == 0) // Insert at begin
         {
             head.prev = n;
             n.next = head;
@@ -64,7 +66,7 @@ public class DL
             return;
         }
         Node temp = head;
-        while(l > 1)
+        while(l > 1) // Find desired location
         {
             temp = temp.next;
             l--;
@@ -74,6 +76,59 @@ public class DL
         n.next = temp.next;
         n.prev = temp;
         temp.next = n;
+    }
+    void removeFirst()
+    {
+        if(head == null) // if head == null nothing to remove
+        {
+            System.out.println("UnderFlow");
+            return;
+        }
+        head = head.next; // Change head to head.next
+    }
+    void removeLast()
+    {
+        if(head == null)
+        {
+            System.out.println("UnderFlow");
+            return;
+        }
+        if(head.next == null) // head contains one node then remove node
+        {
+            head = null;
+            return;
+        }
+        Node temp = head;
+        while(temp.next.next != null) // find the last before node
+        {
+            temp = temp.next;
+        }
+        temp.next = null; // remove last node link
+    }
+    void removeRandom(int l)
+    {
+        if(head == null)
+        {
+            System.out.println("UnderFLow");
+            return;
+        }
+        if(l == 0) // head point to head next
+        {
+            head = head.next;
+            return;
+        }
+        Node temp = head;
+        while(l > 1) // find previous node of delete node
+        {
+            temp = temp.next;
+            l--;
+        }
+        if(temp == null)
+        {
+            System.out.println("NO node present");
+            return;
+        }
+        temp.next = temp.next.next;
     }
     void display()
     {
@@ -95,7 +150,7 @@ public class DL
         Scanner s = new Scanner(System.in);
         DL l = new DL();
         int a = 0;
-        while(a != 9)
+        while(a != 10)
         {
             a = s.nextInt();
             switch (a)
@@ -104,6 +159,9 @@ public class DL
                 case 1 -> l.addFirst(s.nextInt());
                 case 2 -> l.addLast(s.nextInt());
                 case 3 -> l.addRandom(s.nextInt(), s.nextInt());
+                case 4 -> l.removeFirst();
+                case 5 -> l.removeLast();
+                case 6 -> l.removeRandom(s.nextInt());
             }
         }
     }
