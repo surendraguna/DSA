@@ -120,15 +120,29 @@ public class DL
         Node temp = head;
         while(l > 1) // find previous node of delete node
         {
+            System.out.println(temp.data);
             temp = temp.next;
             l--;
         }
-        if(temp == null)
+        if(temp == null || temp.next == null)
         {
             System.out.println("NO node present");
             return;
         }
-        temp.next = temp.next.next;
+        temp.next = temp.next.next; // RemoveRandom is done
+    }
+    void reverse()
+    {
+        Node temp = head;
+        while (temp.next != null)
+        {
+            temp = temp.next;
+        }
+        while(temp != null)
+        {
+            System.out.println(temp.data);
+            temp = temp.prev;
+        }
     }
     void display()
     {
@@ -152,6 +166,7 @@ public class DL
         int a = 0;
         while(a != 10)
         {
+            System.out.println("Enter Option:");
             a = s.nextInt();
             switch (a)
             {
@@ -162,6 +177,7 @@ public class DL
                 case 4 -> l.removeFirst();
                 case 5 -> l.removeLast();
                 case 6 -> l.removeRandom(s.nextInt());
+                case 7 -> l.reverse();
             }
         }
     }

@@ -117,6 +117,11 @@ public class LL
         {
             temp = temp.next;
         }
+        if(temp == null || temp.next == null)
+        {
+            System.out.println("NO node present"); // Find node is empty or not
+            return;
+        }
         temp.next = temp.next.next; // Removing link
     }
     public void search(int x)
@@ -148,6 +153,7 @@ public class LL
         while(curr != null)
         {
             Node nxt = curr.next;
+
             curr.next = pre;
 
             //update
@@ -176,16 +182,15 @@ public class LL
     // To display Node from another class
     public void display(Node n)
     {
-        if(head == null)
+        if(n == null)
         {
             System.out.println("UnderFloe");
             return;
         }
-        Node temp = n;
-        while(temp != null)
+        while(n != null)
         {
-            System.out.println(temp.data);
-            temp = temp.next;
+            System.out.println(n.data);
+            n = n.next;
         }
     }
     // Main Function To Perform Actions
