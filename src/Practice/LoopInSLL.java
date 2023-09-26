@@ -57,7 +57,8 @@ public class LoopInSLL {
         }
         slow = head;
         fast = head;
-        for(int i = 0; i < c - 1; i++) // Moving fast to c distance
+        for(int i = 0; i < c - 1; i++) // Mov
+            // ing fast to c distance
             fast = fast.next;
         while (fast.next != slow) // Find previous node slow node. slow node is a starting node of loop
         {

@@ -21,7 +21,7 @@ public class LL
         }
     }
     // Declare Head
-    public Node head = null;
+    public static Node head = null;
     // Add Element At First
     public void addFirst(int data)
     {
@@ -192,6 +192,9 @@ public class LL
             System.out.println(n.data);
             n = n.next;
         }
+    }
+    public static Node read(){
+        return head;
     }
     // Main Function To Perform Actions
     public static void main(String args[])
