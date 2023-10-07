@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class LL
 {
+    public static Node read() {
+        return head;
+    }
+
     // Create Node Class
     public static class Node
     {
@@ -143,27 +147,6 @@ public class LL
         }
         System.out.println("NOT"); // Not Found
     }
-    // Reverse Linked List
-    /*void reverse()
-    {
-        if(head == null || head.next == null)
-            return;
-        Node pre = head;
-        Node curr = head;
-        while(curr != null)
-        {
-            Node nxt = curr.next;
-
-            curr.next = pre;
-
-            //update
-            pre = curr;
-            curr = nxt;
-        }
-        head.next = null;
-        head = pre;
-
-    }*/
     // To Display Linked List
     public void display()
     {
@@ -180,21 +163,12 @@ public class LL
         }
     }
     // To display Node from another class
-    public void display(Node n)
+    public  static Node display(Node temp)
     {
-        if(n == null)
-        {
-            System.out.println("UnderFloe");
-            return;
-        }
-        while(n != null)
-        {
-            System.out.println(n.data);
-            n = n.next;
-        }
-    }
-    public static Node read(){
-        return head;
+        if(temp == null) // Check
+            return null;
+        System.out.println(temp.data); // Display elements one by one
+        return display(temp.next);
     }
     // Main Function To Perform Actions
     public static void main(String args[])

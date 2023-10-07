@@ -1,37 +1,38 @@
 package Practice;
 
-import LinkedList.LL;
+import static LinkedList.LL.*;
 
 import java.util.Scanner;
 
 public class ReverseLL
 {
-    static LL l = new LL();
-    static void reverse(LL.Node Head)
+    static void reverse()
     {
         // Reverse LinkedList
-        /*LL.Node cur, prev;
-        cur = prev = l.head;
+        Node cur, prev;
+        cur = head;
+        prev = null;
         while(cur != null)
         {
-            LL.Node next = cur.next;
+            Node next = cur.next;
             cur.next = prev;
             prev = cur;
             cur = next;
         }
-        l.head.next = null;
-        l.head = prev;*/
+        head = prev;
+    }
+    static void recursiveReverse(Node head){
 
-        // Reverse Display
-       if(Head.next != null)
-       {
-           reverse(Head.next);
-       }
-       System.out.println(Head.data + " ");
     }
     public static void main(String[] args)
     {
         Scanner s = new Scanner(System.in);
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
+        head.next.next.next.next= new Node(5);
+        head.next.next.next.next.next = new Node(6);
         int a = 1;
         while(a != 0)
         {
@@ -39,9 +40,10 @@ public class ReverseLL
             a = s.nextInt();
             switch (a)
             {
-                case 1 -> l.addLast(s.nextInt());
-                case 2 -> l.display();
-                case 3 -> reverse(l.head);
+                //case 1 -> l.addLast(s.nextInt());
+                case 2 -> display(head);
+                case 3 -> reverse();
+                case 4 -> recursiveReverse(head);
             }
         }
     }

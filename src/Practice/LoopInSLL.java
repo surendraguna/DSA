@@ -17,7 +17,7 @@ public class LoopInSLL {
 
     static void display()
     {
-        Node temp = head;
+        Node temp = LoopInSLL.head;
         while (temp != null)
         {
             System.out.println(temp.data);
