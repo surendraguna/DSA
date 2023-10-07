@@ -21,7 +21,16 @@ public class ReverseLL
         }
         head = prev;
     }
-    static void recursiveReverse(Node head){
+    static void recursiveReverse(Node cur){
+        if(cur == null)
+            return;
+        if(cur.next == null){
+            head = cur;
+            return;
+        }
+        recursiveReverse(cur.next);
+        cur.next.next = cur;
+        cur.next = null;
 
     }
     public static void main(String[] args)
