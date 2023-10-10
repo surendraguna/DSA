@@ -40,45 +40,6 @@ public class BinaryTree {
         postOrder(root.right);
         System.out.println(root.data);
     }
-    // Delete Node from tree
-    private static void deleteNode(){
-
-        if(root == null)
-            return;
-        if(root.left == null && root.right == null){
-            root = null;
-            return;
-        }
-        Queue<Node> q = new LinkedList<Node>();
-        q.add(root);
-        while (!q.isEmpty()) {
-            Node temp = q.peek();
-            q.remove();
-            if (temp.right != null) {
-                if (temp.right.left == null && temp.right.right == null) {
-                    System.out.println(temp.right.data);
-                    temp.right = null;
-                    return;
-                }
-                else
-                    q.add(temp.right);
-            }
-            if (temp.left != null) {
-                if (temp.left.left == null && temp.left.right == null) {
-                    System.out.println(temp.left.data);
-                    temp.left = null;
-                    return;
-                }
-                else
-                    q.add(temp.left);
-            }
-            // Display Elements in Queue
-            System.out.println("Queue :");
-            for (Node n : q) {
-                System.out.print(n.data + " ");
-            }
-        }
-    }
     // Insertion of Binary Tree
     static void addElement(int x){
         Node n = new Node(x);
@@ -105,7 +66,14 @@ public class BinaryTree {
                 q.add(temp.right);
         }
     }
-
+    // Height of Binary Tree
+    static int height(Node root){
+        if(root == null)
+            return 0;
+        int l = height(root.left);
+        int r = height(root.right);
+        return Math.max(l, r) + 1;
+    }
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int a = 1;
@@ -130,9 +98,10 @@ public class BinaryTree {
             switch (a){
                 case 1 -> addElement(s.nextInt());
                 case 2 -> inOrder(root);
-                case 3 -> deleteNode();
+                //case 3 -> deleteNode();
                 /*case 3 -> preOrder(root);
                 case 4 -> postOrder(root);*/
+                case 5 -> System.out.println(height(root));
             }
         }
 

@@ -1,6 +1,5 @@
 package Queue;
 
-import java.util.Queue;
 import java.util.Scanner;
 
 public class QueueLL
@@ -51,6 +50,18 @@ public class QueueLL
             temp = temp.next;
         }
     }
+    int peek(){
+        if(front == null)
+            return -1;
+        return front.data;
+    }
+    Object poll(){
+        if(front == null)
+            return null;
+        int x = front.data;
+        front = front.next;
+        return x;
+    }
     public static void main(String[] args)
     {
         QueueLL Q = new QueueLL();
@@ -64,6 +75,8 @@ public class QueueLL
                 case 1 -> Q.enQueue(s.nextInt());
                 case 2 -> Q.deQueue();
                 case 3 -> Q.display();
+                case 4 -> System.out.println(Q.peek());
+                case 5 -> System.out.println(Q.poll());
             }
         }
     }
