@@ -1,4 +1,4 @@
-package CollectionsPractice;
+package List;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,6 +9,5 @@ public class ALPractice {
         Integer[] b = {1, 2, 4, 5};
         ArrayList<Integer> a = new ArrayList<>(Arrays.asList(b));
         System.out.println(a);
-
     }
 }

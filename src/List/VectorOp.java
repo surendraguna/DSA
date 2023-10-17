@@ -1,6 +1,5 @@
-package CollectionsPractice;
+package List;
 
-import java.util.Objects;
 import java.util.Vector;
 
 public class VectorOp {

@@ -62,8 +62,10 @@ public class LoopInSLL {
             fast = fast.next;
         while (fast.next != slow) // Find previous node slow node. slow node is a starting node of loop
         {
+            System.out.println(fast.data);
             slow = slow.next;
             fast = fast.next;
+
         }
         fast.next = null;
     }
@@ -72,9 +74,9 @@ public class LoopInSLL {
         head.next = new Node(2);
         head.next.next = new Node(3);
         head.next.next.next = new Node(4);
-        head.next.next.next.next = new Node(5);
-        head.next.next.next.next.next = new Node(6);
-        head.next.next.next.next.next.next = head.next.next;
+        //head.next.next.next.next = new Node(5);
+        //head.next.next.next.next.next = new Node(6);
+        head.next.next.next.next = head.next;
         Scanner s = new Scanner(System.in);
         int a = 1;
         while(a != 0)
